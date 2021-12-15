@@ -11,15 +11,18 @@
 </head>
 
 <body>
-    <form>
+    <div>
         <div>Title:</div>
         <input type="text" id="title">
         <div>Author</div>
         <input type="text" id="author">
         <div>Read:</div>
         <input type="checkbox" id="hasRead">
-        <input type="submit" value="Submit">
-    </form>
+        <button onclick="addBookToLibrary()">Submit</button>
+    </div>
+    <div id="theLibrary">
+
+    </div>
 </body>
 
 </html>
