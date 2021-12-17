@@ -1,0 +1,21 @@
+#addBooks {
+  text-align: center;
+  height: 160px;
+}
+
+#theLibrary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px;
+}
+
+.individualBook {
+  display: flex;
+  flex-direction: column;
+  background-color: #7bd1f8;
+  border: 2px solid #353d42;
+  border-radius: 25px;
+  padding: 20px;
+  gap: 5px;
+}

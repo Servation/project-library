@@ -35,28 +35,39 @@ function showLibrary() {
     }
     myLibrary.forEach(el => {
         let book = document.createElement("div");
-        book.setAttribute('id', el.bookID);
-        let title = document.createElement("h2");
-        let author = document.createElement("h3");
-        let pages = document.createElement("p");
-        let read = document.createElement("p");
+        let title = document.createElement("div");
+        let author = document.createElement("div");
+        let pages = document.createElement("div");
+        let readButton = document.createElement("button");
         let deleteButton = document.createElement("button");
+        book.setAttribute('id', el.bookID);
+        book.setAttribute("class", "individualBook");
         title.textContent = "Title: " + el.title;
         author.textContent = "Author: " + el.author;
         pages.textContent = "Pages: " + el.pages;
-        read.textContent = "Read: " + el.read;
-        deleteButton.textContent = "Delete";
+        deleteButton.textContent = "DELETE";
+        if (el.read) {
+            readButton.style.backgroundColor = "LightGreen";
+            readButton.textContent = "READ";
+        } else {
+            readButton.style.backgroundColor = "Crimson";
+            readButton.textContent = "NOT READ";
+        }
         deleteButton.addEventListener("click", function () {
             myLibrary = myLibrary.filter(function (obj) {
                 return obj.bookID !== el.bookID;
             });
             showLibrary();
         });
+        readButton.addEventListener("click", function () {
+            el.toggleRead();
+            showLibrary();
+        });
         bookLib.appendChild(book);
         book.appendChild(title);
         book.appendChild(author);
         book.appendChild(pages);
-        book.appendChild(read);
+        book.appendChild(readButton);
         book.appendChild(deleteButton);
     });
 }
