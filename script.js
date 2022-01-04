@@ -1,22 +1,22 @@
 let myLibrary = [];
 let bookCounter = 0;
 
-function Book(title, author, pages, read, bookID) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.bookID = bookID
-}
-
-Book.prototype.toggleRead = function () {
-    if (this.read == true) {
-        this.read = false;
-    } else {
-        this.read = true;
+class Book {
+    constructor(title, author, pages, read, bookID) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+        this.bookID = bookID
+    }
+    toggleRead() {
+        if (this.read == true) {
+            this.read = false;
+        } else {
+            this.read = true
+        }
     }
 }
-
 function addBookToLibrary() {
     let bookTitle = document.getElementById("title").value;
     let bookAuthor = document.getElementById("author").value;
